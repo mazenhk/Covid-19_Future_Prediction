@@ -11,6 +11,8 @@ from tensorflow.keras.layers import Dense, LSTM
 import matplotlib.pyplot as plt
 plt.style.use('fivethirtyeight')
 
+#data reference https://www.statista.com/statistics/1105613/covid19-new-daily-cases-worldwide-by-region/
+#only rows of the Date and Count in Asia are taken from the original .csv data section file to LastCovid.csv
 df = pd.read_csv('LastCovid.csv')
 df
 
