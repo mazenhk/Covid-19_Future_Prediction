@@ -17,6 +17,8 @@ scaler = MinMaxScaler(feature_range=(0,1))
 
 #print('type',type(data))
 predict = []
+
+#Predict for 10 future days
 for i in range(10):
   last_days = data[-10:].values
   #Scale the data to be values between 0 and 1
