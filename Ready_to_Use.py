@@ -15,10 +15,6 @@ from sklearn.preprocessing import MinMaxScaler
 
 scaler = MinMaxScaler(feature_range=(0,1))
 
-#print('type',type(data))
-predict = []
-
-#Predict for 10 future days
 for i in range(10):
   last_days = data[-10:].values
   #Scale the data to be values between 0 and 1
@@ -35,10 +31,7 @@ for i in range(10):
   pred_count = model.predict(X_test)
   #undo the scaling 
   pred_count = scaler.inverse_transform(pred_count)
-  #print(pred_price)
   d = pd.DataFrame({ 'Count': pred_count[0] })
-  #print(d)
-  predict.append(pred_count)
   frames = [data, d]
   
   results = pd.concat(frames)
@@ -46,20 +39,16 @@ for i in range(10):
 
 temp = []
 for i in data['Count']:
-  #print(i[0])
   temp.append(i)
 print(temp)
 
-#print(temp)
 #Visualize the data
 plt.figure(figsize=(16,8))
 plt.title('Model')
 plt.xlabel('Date', fontsize=18)
 plt.ylabel('Covid-19', fontsize=18)
 
-#plt.plot(Tempdata)
 plt.plot(temp)
 
-#plt.plot(valid[['first', 'second']])
 plt.legend(['Val'], loc='upper right')
 plt.show()
