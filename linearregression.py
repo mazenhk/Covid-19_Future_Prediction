@@ -114,4 +114,5 @@ rmse
 #plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
 #plt.show()
 
+#Save model
 model.save('Covid-19')
